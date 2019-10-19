@@ -53,8 +53,8 @@ def training (dic_df_data):
 		events_data = EventsGenerator(learning_data, dic_df_data[item]['top_prob'], learning_data.size).run()
 		X_train, X_test, y_train, y_test = get_test_train_data(events_data, feature_cols)
 		if y_train.tolist().count(1) < 1:
-			print ("rank cannot be found for this dir " + item)
-			print
+			# print ("rank cannot be found for this dir " + item)
+			# print
 			continue
 		model[item], trp, trr, tra, tep, ter, tea = train_model(LogisticRegression(), get_predicted_outcome, X_train, y_train, X_test, y_test)
 		train_p+=trp

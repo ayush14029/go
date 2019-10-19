@@ -1,44 +1,28 @@
-# The Go Programming Language
+# GitRanker: Rank users in a directory based on their commit activity.
 
-Go is an open source programming language that makes it easy to build simple,
-reliable, and efficient software.
+The aim of this project was to build a robust system for repository based ranking of users on github taking into account their commit activity corresponding to the said repository. The output of the ranker is a table of the top 5 users with their email and rank score assigned to theem via the model. The training and testing data for the LR model are taken as a random split from the commits currently logged and the weights of the model can be altered to train it again via the feature_selector functionality.
 
-![Gopher image](doc/gopher/fiveyears.jpg)
-*Gopher image by [Renee French][rf], licensed under [Creative Commons 3.0 Attributions license][cc3-by].*
+If the trained model is deleted from the repository, one has to necessariily run the trainer/feature_selector script first before moving forward to ranker or tester.  
 
-Our canonical Git repository is located at https://go.googlesource.com/go.
-There is a mirror of the repository at https://github.com/golang/go.
+There are four possible operations one can perform. They are explained in detail below:
 
-Unless otherwise noted, the Go source files are distributed under the
-BSD-style license found in the LICENSE file.
+1. tester - it takes an input file containing a commit sample from 2 users and helps determine the final directory based relevance scores assigned to them.
+Needs atleast two commits from different users in the same directory to compare their influence and ranking.
+Run the program as: python3 gitRanker.py tester (arg1) <input_file> (arg2) <directory_path> (arg3)
 
-### Download and Install
+2. trainer - it simply retrains the whole program again, periodic has to  be done to keeep the system updated
+Run the program as: python3 gitRanker.py trainer (arg1)
 
-#### Binary Distributions
+3. ranker - this just directly outputs the rank for the user's choice of a folder based on currently trained data.
+Run the program as: python3 gitRanker.py ranker (arg1) <folder_path> (arg2)
 
-Official binary distributions are available at https://golang.org/dl/.
+4. feature_selector - this takes in a weight argument to decide a new weighting for the features including 0 as an option. Trains the network again with the new weights.
+Run the program as: python3 gitRanker.py ranker (arg1) <weight_dict_JsonFile> (arg2)
 
-After downloading a binary release, visit https://golang.org/doc/install
-or load [doc/install.html](./doc/install.html) in your web browser for installation
-instructions.
+sample - [weight_dict.json](https://github.com/ayush14029/go/blob/master/weight_dict.json) - {"files_length":1e-7,"file_count":0.0055,"relative_added":0.0017,"relative_deleted":0.0007,"commit_count":0.00125,"relative_directory_contr":1}
+Specify weights for all features, including 0 if feature is not needed
 
-#### Install From Source
+The following diagram explores the construction of the ranking function, the training of the Learning to Rank Model and the testing
+performed against the metrics:
 
-If a binary distribution is not available for your combination of
-operating system and architecture, visit
-https://golang.org/doc/install/source or load [doc/install-source.html](./doc/install-source.html)
-in your web browser for source installation instructions.
 
-### Contributing
-
-Go is the work of thousands of contributors. We appreciate your help!
-
-To contribute, please read the contribution guidelines:
-	https://golang.org/doc/contribute.html
-
-Note that the Go project uses the issue tracker for bug reports and
-proposals only. See https://golang.org/wiki/Questions for a list of
-places to ask questions about the Go language.
-
-[rf]: https://reneefrench.blogspot.com/
-[cc3-by]: https://creativecommons.org/licenses/by/3.0/
