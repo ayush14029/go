@@ -45,9 +45,11 @@ Direction For Expansion:
 1. We could consider many additional features like:
 
 	a. Giving preference to the reviewer of a comment in the directory.
+
 	b. Deriving the semantic usefulness of each commit in the directory with respect to the readme within the directory.
+
 	c. Considering the relative difference between comment and code in the commits.
-2. Handling the cold. start problem by providing. everydorectory with a possible answer using a naive function.
+2. Handling the cold start problem by providing every directory with a possible answer using a naive function.
 3. Introducing non linearities in the ranking function instead of taking a linear combination of weights.
 4. Training the Learning to Rank setup using a neural network as compared to a simple logistic regression as used.
 5. Use pair of events in order to learn the ranking function. It will give us a better idea of relative importance of users which committed at close intervals to each other.
