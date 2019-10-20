@@ -4,6 +4,19 @@ The aim of this project was to build a robust system for repository based rankin
 
 If the trained model is deleted from the repository, one has to necessariily run the trainer/feature_selector script first before moving forward to ranker or tester. The parent file to. run all the operations given below is gitRank.py. 
 
+Files Changed/Added to the original repository:
+
+1. gitRanker.py
+2. new_commit (only in case of tester)
+3. weights_dict.json (only in case of feature_selector)
+4. dirWalk.py
+5. final_dir_data
+6. new_commit_data (only in case of tester)
+7. rankMain.py
+8. utilities.py (used within rankMain)
+9. trained_model_dic_pkl (stores the currently trained model)
+10. test.txt (contains the commit logs backup)
+
 There are four possible operations one can perform. They are explained in detail below:
 
 1. **ranker** - this just directly outputs the rank for the user's choice of a folder based on currently trained data.
