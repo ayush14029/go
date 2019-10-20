@@ -6,16 +6,16 @@ If the trained model is deleted from the repository, one has to necessariily run
 
 Files Changed/Added to the original repository:
 
-1. gitRanker.py
-2. new_commit (only in case of tester)
-3. weights_dict.json (only in case of feature_selector)
-4. dirWalk.py
-5. final_dir_data
-6. new_commit_data (only in case of tester)
-7. rankMain.py
-8. utilities.py (used within rankMain)
-9. trained_model_dic_pkl (stores the currently trained model)
-10. test.txt (contains the commit logs backup)
+1. gitRanker.py - the main program calling runs corresponding to the required functionality
+2. new_commit (only in case of tester) - takes atleast two commits as input and compares the users
+3. weights_dict.json (only in case of feature_selector) - weight setting json file for the feature_selector
+4. dirWalk.py - feature extraction from the commit log
+5. final_dir_data - dictionary feature record built from the log
+6. new_commit_data (only in case of tester) - dictionary feature record built for the new commits in test
+7. rankMain.py - file exectuing the functionalities
+8. utilities.py (used within rankMain) - learning to rank model functions
+9. trained_model_dic_pkl (stores the currently trained model) - the stored model which can be retrained, directly used, tested
+10. test.txt (contains the commit logs backup) - backup file for commit record.
 
 There are four possible operations one can perform. They are explained in detail below:
 
