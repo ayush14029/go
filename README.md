@@ -21,10 +21,16 @@ Run the program as: `python3 gitRanker.py ranker (arg1) <weight_dict_JsonFile> (
 
 sample - [weight_dict.json](https://github.com/ayush14029/go/blob/master/weight_dict.json)
 
-`{"files_length":1e-7,"file_count":0.0055,"relative_added":0.0017,"relative_deleted":0.0007,"commit_count":0.00125,
-"relative_directory_contr":1}`
+`{
+	"files_length":1e-7,
+	"file_count":0.0055,
+	"relative_added":0.0017,
+	"relative_deleted":0.0007,
+	"commit_count":0.00125,
+	"relative_directory_contr":1
+}`
 
-Specify weights for all features, including 0 if feature is not needed
+Specify weights for all features, including 0 if feature is not needed. The ranking score of all users is calculated by taking into account the timestamp of commits (decaying function used to weigh the newer commits higher as compared to the older ones.)
 
 **Note: For some directories (About 200/900), there might be too few training/testing samples to determine a legitimate ranking of the users and the commits in the particular directory. Additionally, these also include some directories which no longer exist due to. further. commits. In such a cases the rankings are not provided**
 
@@ -32,3 +38,16 @@ The following diagram explores the construction of the ranking function, the tra
 performed against the metrics:
 
 ![](gitRankArch.png)
+
+
+Direction For Expansion:
+
+1. We could consider many additional features like:
+	a. Giving preference to the reviewer of a comment in the directory.
+	b. Deriving the semantic usefulness of each commit in the directory with respect to the readme within the directory.
+	c. Considering the relative difference between comment and code in the commits.
+2. Handling the cold. start problem by providing. everydorectory with a possible answer using a naive function.
+3. Introducing non linearities in the ranking function instead of taking a linear combination of weights.
+4. Training the Learning to Rank setup using a neural network as compared to a simple logistic regression as used.
+5. Use pair of events in order to learn the ranking function. It will give us a better idea of relative importance of users which committed at close intervals to each other.
+6. Making the feature extraction code more modular to easily include more features into the parent dictionary processed later.
