@@ -6,17 +6,17 @@ If the trained model is deleted from the repository, one has to necessariily run
 
 There are four possible operations one can perform. They are explained in detail below:
 
-1. ranker - this just directly outputs the rank for the user's choice of a folder based on currently trained data.
+1. **ranker** - this just directly outputs the rank for the user's choice of a folder based on currently trained data.
 Run the program as: `python3 gitRanker.py ranker (arg1) <folder_path> (arg2)`
 
-2. tester - it takes an input file containing a commit sample from 2 users and helps determine the final directory based relevance scores assigned to them.
+2. **tester** - it takes an input file containing a commit sample from 2 users and helps determine the final directory based relevance scores assigned to them.
 Needs atleast two commits from different users in the same directory to compare their influence and ranking.
 Run the program as: `python3 gitRanker.py tester (arg1) <input_file> (arg2) <directory_path> (arg3)`
 
-3. trainer - it simply retrains the whole program again, periodic has to  be done to keeep the system updated
+3. **trainer** - it simply retrains the whole program again, periodic has to  be done to keeep the system updated
 Run the program as: `python3 gitRanker.py trainer (arg1)` 
 
-4. feature_selector - this takes in a weight argument to decide a new weighting for the features including 0 as an option. Trains the network again with the new weights.
+4. **feature_selector** - this takes in a weight argument to decide a new weighting for the features including 0 as an option. Trains the network again with the new weights.
 Run the program as: `python3 gitRanker.py ranker (arg1) <weight_dict_JsonFile> (arg2)`
 
 sample - [weight_dict.json](https://github.com/ayush14029/go/blob/master/weight_dict.json)
@@ -43,6 +43,7 @@ performed against the metrics:
 Direction For Expansion:
 
 1. We could consider many additional features like:
+
 	a. Giving preference to the reviewer of a comment in the directory.
 	b. Deriving the semantic usefulness of each commit in the directory with respect to the readme within the directory.
 	c. Considering the relative difference between comment and code in the commits.

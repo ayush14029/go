@@ -114,22 +114,13 @@ def train_model(model, prediction_function, X_train, y_train, X_test, y_test):
     
     y_train_pred = prediction_function(model, X_train)
 
-    # print('train precision: ' + str(precision_score(y_train, y_train_pred)))
-    # print('train recall: ' + str(recall_score(y_train, y_train_pred)))
-    # print('train accuracy: ' + str(accuracy_score(y_train, y_train_pred)))
-
     y_test_pred = prediction_function(model, X_test)
-
-    # print('test precision: ' + str(precision_score(y_test, y_test_pred)))
-    # print('test recall: ' + str(recall_score(y_test, y_test_pred)))
-    # print('test accuracy: ' + str(accuracy_score(y_test, y_test_pred)))
     
     return model, precision_score(y_train, y_train_pred), recall_score(y_train, y_train_pred), accuracy_score(y_train, y_train_pred),\
     precision_score(y_test, y_test_pred), recall_score(y_test, y_test_pred), accuracy_score(y_test, y_test_pred)
 
 def decide_rank(model, learning_data, predict_fun):
     lg_input = learning_data.values.astype(np.float32)
-    # print('overall input shape: ' + str(lg_input.shape))
 
     learning_data_with_rank = learning_data.copy()
     learning_data_with_rank['rank'] = predict_fun(model, lg_input)
