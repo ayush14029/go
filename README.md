@@ -67,3 +67,13 @@ Direction For Expansion:
 4. Training the Learning to Rank setup using a neural network as compared to a simple logistic regression as used.
 5. Use pair of events in order to learn the ranking function. It will give us a better idea of relative importance of users which committed at close intervals to each other.
 6. Making the feature extraction code more modular to easily include more features into the parent dictionary processed later.
+
+References:
+
+1. https://medium.com/@nikhilbd/pointwise-vs-pairwise-vs-listwise-learning-to-rank-80a8fe8fadfd
+2. http://times.cs.uiuc.edu/course/598f14/l2r.pdf
+3. https://git-scm.com/docs/git-log#Documentation/git-log.txt--P
+4. https://ieeexplore.ieee.org/abstract/document/7883306?fbclid=IwAR1a9rMIEOg9FuUdILhVGQ-B7pr0Q4TJVr-uE1YiJv7RM7hqymOFfepwcic
+5. http://base.sjtu.edu.cn/home/lib/exe/fetch.php?media=pub%3Ainternetware.pdf&fbclid=IwAR3wJ1BGXjMFLkD9wtnSgSElqFajKzujhWxkXlzr2OMSc7_ysG05zMbFUxA
+6. https://github.com/PyGithub/PyGithub
+7. https://pandas.pydata.org/pandas-docs/stable/reference/
