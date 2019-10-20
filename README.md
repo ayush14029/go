@@ -21,11 +21,12 @@ Run the program as: `python3 gitRanker.py ranker (arg1) <weight_dict_JsonFile> (
 
 sample - [weight_dict.json](https://github.com/ayush14029/go/blob/master/weight_dict.json)
 
-{"files_length":1e-7,"file_count":0.0055,"relative_added":0.0017,"relative_deleted":0.0007,"commit_count":0.00125,"relative_directory_contr":1}
+`{"files_length":1e-7,"file_count":0.0055,"relative_added":0.0017,"relative_deleted":0.0007,"commit_count":0.00125,
+"relative_directory_contr":1}`
 
 Specify weights for all features, including 0 if feature is not needed
 
-** Note: For some directories (About 200/900), there might be too few training/testing samples to determine a legitimate ranking of the users and the commits in the particular directory. Additionally, these also include some directories which no longer exist due to. further. commits. In such a cases the rankings are not provided **
+**Note: For some directories (About 200/900), there might be too few training/testing samples to determine a legitimate ranking of the users and the commits in the particular directory. Additionally, these also include some directories which no longer exist due to. further. commits. In such a cases the rankings are not provided**
 
 The following diagram explores the construction of the ranking function, the training of the Learning to Rank Model and the testing
 performed against the metrics:
